@@ -1,13 +1,18 @@
 .main {
 
+    &__title {
+        padding: 1rem;
+    }
+
     &__title-decoration {
         width: 8rem;
         border: 1px solid red;
         margin-bottom: 1.5rem;
+        margin-left: 1rem;
     }
 
     &__image {
-        width: 4rem;
+        width: 3rem;
     }
 
     &__todos{
@@ -22,4 +27,20 @@
         gap: 1rem;
     }
 
+}
+
+@media (min-width: 768px) {
+    .main {
+        &__title {
+            padding: 0;
+        }
+
+        &__title-decoration {
+            margin-left: 0;
+        }
+
+        &__image {
+            width: 4rem;
+        }
+    }
 }

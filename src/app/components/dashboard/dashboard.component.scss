@@ -1,8 +1,15 @@
 .dashboard {
 
     &__content {
-        padding: 1.5rem;
         width: 100%;
     }
 
+}
+
+@media (min-width: 768px) {
+    .dashboard {
+        &__content {
+            padding: 1.5rem;
+        }
+    }
 }
