@@ -24,7 +24,7 @@ jobs:
             node-version: '21'
   
       - name: 📥 Installing Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: 🧪 Testing
         run: npm run test
