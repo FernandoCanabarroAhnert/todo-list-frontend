@@ -18,6 +18,14 @@ jobs:
         with:
           node-version: '21'
 
+      - name: 📩 Set up Node.js
+        uses: actions/setup-node@v4 # Instala o node na versão 21
+        with:
+            node-version: '21'
+  
+      - name: 📥 Installing Dependencies
+        run: npm install
+
       - name: 🧪 Testing
         run: npm run test
 
