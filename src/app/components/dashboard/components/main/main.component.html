@@ -1,0 +1,27 @@
+<div class="main h-full">
+    <h1 class="main__title text-2xl lg:text-4xl flex gap-4">Bem-vindo de volta, {{ username }} <img class="main__image" src="../../../../../assets/img/hand wave.png"></h1>
+    <div class="main__title-decoration"></div>
+    <div class="grid xl:grid-cols-2 gap-12 main__content">
+        <div class="main__todos order-2 xl:order-1">
+            <app-todos-list [title]="'Tarefas a Fazer'" [todosList]="notCompletedTodos.content"></app-todos-list>
+            <app-pagination
+                [currentPage]="notCompletedTodos.number + 1"
+                [numberOfElements]="notCompletedTodos.numberOfElements"
+                [totalElements]="notCompletedTodos.totalElements"
+                [totalPages]="notCompletedTodos.totalPages"
+                (onPageChangeEmitter)="onNotCompletedTodosPageChange($event)">
+            </app-pagination>
+        </div>
+        <div class="main__summary order-1 xl:order-2">
+            <app-summary [summary]="summary"></app-summary>
+            <app-todos-list [title]="'Tarefas Concluídas'" [todosList]="completedTodos.content" ></app-todos-list>
+            <app-pagination
+                [currentPage]="completedTodos.number + 1"
+                [numberOfElements]="completedTodos.numberOfElements"
+                [totalElements]="completedTodos.totalElements"
+                [totalPages]="completedTodos.totalPages"
+                (onPageChangeEmitter)="onCompletedTodosPageChange($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>

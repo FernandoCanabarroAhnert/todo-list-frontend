@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as variables;
+
+.aside-menu {
+    background-color: variables.$primary-color;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+    min-height: 90vh;
+    height: 100%;
+
+    &--open {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 90%;
+        z-index: 1000;
+    }
+
+    &__header {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        font-size: 1.875rem;
+        font-weight: 600;
+    }
+
+    &__color--white {
+        color: #fff;
+    }
+
+    &__menu-toggle {
+        font-size: 2rem;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: .75rem;
+        color: #fff;
+        border-radius: 12px;
+        cursor: pointer;
+
+        &--active {
+            background-color: #fff;
+            color: variables.$primary-color;
+        }
+
+    }
+
+    &__text {
+        font-size: 1.1rem;
+    }
+
+    &__logout {
+        margin-top: auto;
+    }
+
+}

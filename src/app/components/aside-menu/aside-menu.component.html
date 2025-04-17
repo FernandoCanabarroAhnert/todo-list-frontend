@@ -1,0 +1,35 @@
+<div class="aside-menu" [ngClass]="{ 'aside-menu--open': isMenuOpen }">
+    <div class="aside-menu__header" *ngIf="isMenuOpen">
+        <div class="aside-menu__logo">
+            <span class="aside-menu__color--white">To</span>-do
+        </div>
+        <div class="aside-menu__menu-toggle">
+            <span (click)="onCloseMenu()">X</span>
+        </div>
+    </div>
+    <div class="aside-menu__item" routerLink="/dashboard/home" routerLinkActive="aside-menu__item--active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>home</mat-icon>
+        <span class="aside-menu__text">Página Inicial</span>
+    </div>
+    <div class="aside-menu__item" routerLink="/dashboard/todos" routerLinkActive="aside-menu__item--active">
+        <mat-icon>list_alt_check</mat-icon>
+        <span class="aside-menu__text">Tarefas</span>
+    </div>
+    <div class="aside-menu__item" routerLink="/dashboard/completed-todos" routerLinkActive="aside-menu__item--active">
+        <mat-icon>done_all</mat-icon>
+        <span class="aside-menu__text">Tarefas Concluídas</span>
+    </div>
+    <div class="aside-menu__item" routerLink="/dashboard/create-todo" routerLinkActive="aside-menu__item--active">
+        <mat-icon>list_alt_add</mat-icon>
+        <span class="aside-menu__text">Criar Tarefa</span>
+    </div>
+    <div class="aside-menu__item" routerLink="/dashboard/settings" routerLinkActive="aside-menu__item--active">
+        <mat-icon>settings</mat-icon>
+        <span class="aside-menu__text">Configurações</span>
+    </div>
+
+    <div class="aside-menu__item aside-menu__logout" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+        <span class="aside-menu__text">Sair</span>
+    </div>
+</div>

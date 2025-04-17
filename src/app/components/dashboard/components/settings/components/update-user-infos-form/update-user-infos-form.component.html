@@ -1,0 +1,35 @@
+<div class="g-form">
+    <div class="g-form__container g-card">
+        <h2 class="g-form__title">Atualizar Informações</h2>
+        <div class="g-form__title-decoration"></div>
+        <form class="g-form__form" [formGroup]="updateUserInfosForm" (ngSubmit)="updateUserInfos()">
+            <div class="g-form__item w-full lg:w-1/2">
+                <label class="g-form__label" for="fullName">Nome completo</label>
+                <input class="g-form__input" type="text" id="fullName" name="fullName" formControlName="fullName">
+                <div class="g-form__error" *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                    <p *ngIf="fullName.hasError('required')">O campo <b>Nome Completo</b> é obrigatório</p>
+                </div>
+            </div>
+            <div class="g-form__item w-full lg:w-1/2">
+                <label class="g-form__label" for="userName">Nome de usuário</label>
+                <input class="g-form__input" type="text" id="userName" name="userName" formControlName="userName">
+                <div class="g-form__error" *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                    <p *ngIf="userName.hasError('required')">O campo <b>Nome de Usuário</b> é obrigatório</p>
+                </div>
+            </div>
+            <div class="g-form__item w-full lg:w-1/2">
+                <label class="g-form__label" for="email">E-mail</label>
+                <input class="g-form__input" type="text" id="email" name="email" formControlName="email">
+                <div class="g-form__error" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <p *ngIf="email.hasError('required')">O e-mail está inválido</p>
+                    <p *ngIf="email.hasError('alreadyExistingEmail')">Este e-mail já está em uso por outro usuário</p>
+                </div>
+            </div>
+            <div class="g-form__error">
+                <p *ngIf="updateUserInfosForm.hasError('invalidData')">Dados inválidos</p>
+                <p *ngIf="updateUserInfosForm.hasError('serverError')">Ocorreu um erro inesperado. Tente novamente mais tarde</p>
+            </div>
+            <app-button>Atualizar Informações</app-button>
+        </form>
+    </div>
+</div>

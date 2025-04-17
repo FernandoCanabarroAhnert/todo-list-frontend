@@ -1,0 +1,76 @@
+.summary {
+    padding: 1.5rem;
+
+    &__title {
+        font-size: 1.625rem;
+    }
+
+    &__title-decoration {
+        width: 4rem;
+        border: 1px solid red;
+        margin-bottom: 1.25rem;
+    }
+
+    &__reports {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        position: relative;
+        align-items: center;
+    }
+
+    &__percentage {
+        font-size: 1.25rem;
+        font-weight: 600;
+        position: absolute;
+        top: 25%;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__description {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    &__icon {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+
+        &--completed {
+           background-color: rgb(0, 124, 10);
+        }
+        &--in-progress {
+            background-color: rgb(0, 74, 211);
+         }
+         &--not-started {
+            background-color: rgb(230, 42, 42);
+         }
+    }
+
+}
+
+:host ::ng-deep #completed.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle {
+    stroke: rgb(0, 124, 10) !important;
+}
+
+:host ::ng-deep #in-progress.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle {
+    stroke: rgb(0, 74, 211) !important;
+}
+
+:host ::ng-deep #not-started.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle {
+    stroke: rgb(230, 42, 42) !important;
+}
+
+:host ::ng-deep #empty-spinner.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle {
+    stroke: #ddd !important;
+}

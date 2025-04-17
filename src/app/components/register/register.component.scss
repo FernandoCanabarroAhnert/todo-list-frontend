@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as variables;
+
+.register {
+
+    &__icon {
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__error {
+        display: block;
+        color: red;
+    }
+
+}

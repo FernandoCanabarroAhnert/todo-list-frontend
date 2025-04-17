@@ -1,0 +1,14 @@
+.not-found {
+    
+    &__title {
+        font-size: 3rem;
+    }
+
+    &__link {
+        cursor: pointer;
+        text-decoration: underline;
+        color: #3271e7;
+        text-align: center;
+    }
+
+}

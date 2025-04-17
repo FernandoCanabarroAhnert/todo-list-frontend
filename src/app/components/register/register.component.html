@@ -1,0 +1,61 @@
+<div class="auth-form lg:h-screen">
+    <div class="auth-form__container container mx-auto grid lg:grid-cols-2">
+        <div class="register__image order-2 lg:order-1">
+            <img src="../../../assets/img/register-img.png">
+        </div>
+        <form class="auth-form__form order-1 lg:order-2" [formGroup]="registerForm" (ngSubmit)="register()">
+            <h2 class="auth-form__title">Cadastrar</h2>
+            <div class="auth-form__item">
+                <mat-icon class="register__icon">person</mat-icon>
+                <input class="auth-form__input" type="text" placeholder="Digite seu nome completo" formControlName="fullName">
+            </div>
+            <div class="auth-form__error" *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+                <p *ngIf="fullName.hasError('required')">O campo <b>Nome Completo</b> é obrigatório</p>
+            </div>
+            <div class="auth-form__item">
+                <mat-icon class="register__icon">account_circle</mat-icon>
+                <input class="auth-form__input" type="text" placeholder="Digite seu nome de usuário" formControlName="username">
+            </div>
+            <div class="auth-form__error" *ngIf="username.invalid && (username.dirty || username.touched)">
+                <p *ngIf="username.hasError('required')">O campo <b>Nome de Usuário</b> é obrigatório</p>
+            </div>
+            <div class="auth-form__item">
+                <mat-icon class="register__icon">mail</mat-icon>
+                <input class="auth-form__input" type="text" placeholder="Digite seu e-mail" formControlName="email">
+            </div>
+            <div class="auth-form__error" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <p *ngIf="email.hasError('required')">O campo <b>E-mail</b> é obrigatório</p>
+                <p *ngIf="email.hasError('pattern')">O campo <b>E-mail</b> está inválido</p>
+                <p *ngIf="email.hasError('emailExists')">O e-mail fornecido já está em uso</p>
+            </div>
+            <div class="auth-form__item">
+                <mat-icon class="register__icon">lock</mat-icon>
+                <input class="auth-form__input" type="password" placeholder="Digite sua senha" formControlName="password">
+            </div>
+            <div class="auth-form__error" *ngIf="password.invalid && (password.touched || password.dirty)">
+                <p *ngIf="password.hasError('required')">O campo <b>Senha</b> é obrigatório</p>
+                <p *ngIf="password.hasError('minlength')">A Nova Senha deve ter no mínimo <b>8 caracteres</b></p>
+                <p *ngIf="password.hasError('noUpperCaseLetter')">A Nova Senha deve ter no mínimo <b>1 letra maiúscula</b></p>
+                <p *ngIf="password.hasError('noLowerCaseLetter')">A Nova Senha deve ter no mínimo <b>1 letra minúscula</b></p>
+                <p *ngIf="password.hasError('noNumber')">A Nova Senha deve ter no mínimo <b>1 número</b></p>
+                <p *ngIf="password.hasError('noSpecialChar')">A Nova Senha deve ter no mínimo <b>1 caractere especial</b></p>
+            </div>
+            <div class="auth-form__item">
+                <mat-icon class="register__icon">lock</mat-icon>
+                <input class="auth-form__input" type="password" placeholder="Confirme sua senha" formControlName="passwordConfirmation">
+            </div>
+            <div class="auth-form__error" *ngIf="passwordConfirmation.invalid && (passwordConfirmation.touched || passwordConfirmation.dirty)">
+                <p *ngIf="passwordConfirmation.hasError('required')">O campo <b>Confirmação de Senha</b> é obrigatório</p>
+                <p *ngIf="passwordConfirmation.hasError('passwordMismatch')">As senhas devem ter o mesmo valor</p>
+            </div>
+            <div class="auth-form__error">
+                <p *ngIf="registerForm.hasError('invalidData')">Dados Inválidos. Revise o formulário</p>
+                <p *ngIf="registerForm.hasError('serverError')">Erro inesperado. Tente novamente mais tarde.</p>
+            </div>
+            <app-button>
+                <p class="auth-form__text">Cadastrar</p>
+            </app-button>
+            <p class="auth-form__text">Já tem uma conta? <a routerLink="/login" class="auth-form__link">Efetue Login</a></p>
+        </form>
+    </div>
+</div>

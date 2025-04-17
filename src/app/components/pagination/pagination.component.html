@@ -1,0 +1,64 @@
+<div class="pagination">
+    <p class="pagination__infos">Listando {{ numberOfElements }} de {{ totalElements }} itens | Página {{ currentPage }} de {{ totalPages }}</p>
+    <div class="pagination__nav">
+        <div *ngIf="currentPage > 1" class="pagination__item pagination__item--first" (click)="onPageChange(1)">
+            <-
+        </div>
+        <div *ngIf="currentPage > 1" class="pagination__item"  (click)="onPageChange(currentPage - 1)">
+            <
+        </div>
+        @if (totalPages <= 8) {
+            <div 
+                *ngFor="let i of returnArrayForIteration(totalPages)" 
+                [class]="currentPage === i ? 'pagination__item pagination__item--active' : 'pagination__item'"
+                (click)="onPageChange(i)">
+                {{ i }}
+            </div>
+        }
+        @if (totalPages > 8) {
+            @if (currentPage <= 2 || currentPage >= totalPages - 1) {
+                <div 
+                    *ngFor="let i of returnArrayForIteration(2)" 
+                    [class]="currentPage === i ? 'pagination__item pagination__item--active' : 'pagination__item'"
+                    (click)="onPageChange(i)">
+                    {{ i }}
+                </div>
+                <div 
+                    class="pagination__item"
+                    (click)="onPageChange(3)">
+                    ...
+                </div>
+                <div 
+                    *ngFor="let i of returnArrayForIteration(2)" 
+                    [class]="currentPage === i + totalPages - 2 ? 'pagination__item pagination__item--active' : 'pagination__item'"
+                    (click)="onPageChange(i + totalPages - 2)">
+                    {{ i + totalPages - 2 }}
+                </div>
+            }
+            @if (currentPage > 2 && currentPage < totalPages - 1) {
+                <div 
+                    class="pagination__item"
+                    (click)="onPageChange(currentPage - 2)">
+                    ...
+                </div>
+                <div 
+                    *ngFor="let i of returnArrayForIteration(5)" 
+                    [class]="currentPage === currentPage - 2 + i ? 'pagination__item pagination__item--active' : 'pagination__item'"
+                    (click)="onPageChange(currentPage - 2 + i)">
+                    {{ currentPage - 2 + i }}
+                </div>
+                <div 
+                    class="pagination__item"
+                    (click)="onPageChange(currentPage + 2)">
+                    ...
+                </div>
+            }
+        }
+        <div *ngIf="currentPage < totalPages" class="pagination__item" (click)="onPageChange(currentPage + 1)">
+            >
+        </div>
+        <div *ngIf="currentPage < totalPages" class="pagination__item pagination__item--last" (click)="onPageChange(totalPages)">
+            ->
+        </div>
+    </div>
+</div>

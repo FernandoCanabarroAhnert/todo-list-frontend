@@ -1,0 +1,19 @@
+<div class="todo-details">
+    <div class="todo-details__header">
+        <img class="todo-details__image" [src]="todo.image">
+        <div class="todo-details__header-infos">
+            <h2 class="todo-details__title">{{ todo.title }}</h2>
+            <p>Prioridade: <span [class]="todo.priority | todoPriorityColor">{{ todo.priority | todoPriority }}</span></p>
+            <p>Status: <span [class]="todo.status | todoStatusColor">{{ todo.status | todoStatus }}</span></p>
+            <p>Criado em: <span>{{ todo.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span></p>
+            <p>Expira em: <span>{{ todo.expiresAt | date: 'dd/MM/yyyy HH:mm' }}</span></p>
+        </div>
+    </div>
+    <div class="todo-details__body">
+        <p class="todo-details__description">{{ todo.description }}</p>
+    </div>
+    <div class="todo-details__footer">
+        <app-button (click)="onUpdateButtonClick(todo.id)"><mat-icon class="todo-details__icon">edit_square</mat-icon></app-button>
+        <app-button (click)="onDeleteButtonClick(todo.id)"><mat-icon class="todo-details__icon">delete</mat-icon></app-button>
+    </div>
+</div>

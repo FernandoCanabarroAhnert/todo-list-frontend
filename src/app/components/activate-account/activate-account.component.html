@@ -1,0 +1,12 @@
+<div class="auth-form activate-account">
+    <div class="activate-account__container">
+        <form class="activate-account__form" [formGroup]="activateAccountForm" (ngSubmit)="activateAccount()">
+            <h2 class="auth-form__title">Ativar conta</h2>
+            <div class="auth-form__item">
+                <mat-icon class="activate-account__icon">password_2</mat-icon>
+                <input class="auth-form__input" type="text" placeholder="Digite seu código" formControlName="code">
+            </div>
+            <app-button>Ativar conta</app-button>
+        </form>
+    </div>
+</div>

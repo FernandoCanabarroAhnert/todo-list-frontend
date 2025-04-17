@@ -1,0 +1,13 @@
+@use '../../../styles/variables' as variables;
+
+.button {
+    background-color: variables.$primary-color;
+    padding: .75rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    &--orange {
+        background-color: variables.$secondary-color;
+    }
+   
+}

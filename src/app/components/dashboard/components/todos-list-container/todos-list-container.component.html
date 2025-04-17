@@ -1,0 +1,18 @@
+<div class="todos-list-container block h-full">
+    <div class="flex flex-col lg:grid md:grid-cols-5 gap-6 h-full">
+        <div class="col-span-2 flex flex-col gap-4">
+            <app-todos-list [todosList]="todosList.content"></app-todos-list>
+            <app-pagination 
+                [currentPage]="todosList.number + 1" 
+                [numberOfElements]="todosList.numberOfElements" 
+                [totalElements]="todosList.totalElements"
+                [totalPages]="todosList.totalPages"
+                (onPageChangeEmitter)="onPageChange($event)"></app-pagination>
+        </div>
+        <div class="md:col-span-3">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

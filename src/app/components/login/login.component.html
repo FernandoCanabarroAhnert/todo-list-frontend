@@ -1,0 +1,24 @@
+<div class="auth-form h-screen sm:h-auto lg:h-screen">
+    <div class="auth-form__container lg:container lg:mx-auto grid lg:grid-cols-2">
+        <form class="auth-form__form" [formGroup]="loginForm" (ngSubmit)="login()">
+            <h2 class="auth-form__title">Entrar</h2>
+            <div class="auth-form__item">
+                <mat-icon class="login__icon">mail</mat-icon>
+                <input class="auth-form__input" type="text" placeholder="Digite seu e-mail" formControlName="username">
+            </div>
+            <div class="auth-form__item">
+                <mat-icon class="login__icon">lock</mat-icon>
+                <input class="auth-form__input" type="password" placeholder="Digite sua senha" formControlName="password">
+            </div>
+            <p class="auth-form__error" *ngIf="loginForm.hasError('invalidCredentials')">Credenciais inválidas</p>
+            <p class="auth-form__error" *ngIf="loginForm.hasError('serverError')">Erro inesperado. Tente novamente mais tarde</p>
+            <app-button>
+                <p class="auth-form__text">Entrar</p>
+            </app-button>
+            <p class="auth-form__text">Ainda não tem uma conta? <a routerLink="/register" class="auth-form__link">Cadastre-se</a></p>
+        </form>
+        <div class="login__image">
+            <img src="../../../assets/img/login-img.png">
+        </div>
+    </div>
+</div>

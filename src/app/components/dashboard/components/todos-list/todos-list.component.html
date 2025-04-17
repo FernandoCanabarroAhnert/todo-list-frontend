@@ -1,0 +1,13 @@
+<div class="todos-list g-card col-span-1">
+    <div>
+        <h2 class="todos-list__title">{{ title }}</h2>
+        <div class="todos-list__title-decoration"></div>
+    </div>
+    <app-todo-card 
+        *ngFor="let todo of todosList; let i = index" 
+        [todo]="todo"
+        (click)="onTodoCardSelect(i)"
+        [isSelectedCard]="selectedTodoCardIndex === i"
+        [routerLink]="[todo.status === 1 ? '/dashboard/completed-todos/' + todo.id : '/dashboard/todos/' + todo.id]"
+    ></app-todo-card>
+</div>

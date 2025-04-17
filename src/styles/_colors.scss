@@ -1,0 +1,11 @@
+@use './variables' as variables;
+
+.color-completed, .color-low {
+    color: variables.$color-green;
+}
+.color-in-progress, .color-moderate {
+    color: variables.$color-blue;
+}
+.color-not-started, .color-extreme {
+    color: variables.$color-red;
+}

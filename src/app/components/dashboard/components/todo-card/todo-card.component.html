@@ -1,0 +1,19 @@
+<div class="todo-card g-card" [class]="isSelectedCard ? 'todo-card--selected' : ''">
+
+    <div class="todo-card__header">
+        <div class="todo-card__status-icon" [ngClass]="todo.status | todoCardStatusIconColor"></div>
+        <h2 class="todo-card__title">{{ todo.title }}</h2>
+    </div>
+
+    <div class="todo-card__body">
+        <p class="todo-card__description">{{ todo.description }}</p>
+        <img [src]="todo.image" class="todo-card__image">
+    </div>
+
+    <div class="todo-card__footer">
+        <span>Prioridade: <span [class]="todo.priority | todoPriorityColor">{{ todo.priority | todoPriority }}</span> </span>
+        <span>Status: <span [class]="todo.status | todoStatusColor">{{ todo.status | todoStatus }}</span> </span>
+        <span class="todo-card__date">Criado em: <span>{{ todo.createdAt | date : 'dd/MM/yyyy' }}</span> </span>
+    </div>
+
+</div>

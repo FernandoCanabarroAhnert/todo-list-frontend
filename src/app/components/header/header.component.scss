@@ -1,0 +1,71 @@
+@use '../../../styles/variables' as variables;
+
+.header {
+    background-color: #fffffd;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 10vh;
+
+    &__container {
+        width: 95%;
+        margin: 0 auto;
+        padding: 1.325rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__menu {
+        color: variables.$primary-color;
+        font-size: 1.75rem;
+        cursor: pointer;
+    }
+
+    &__logo {
+        font-size: 1.875rem;
+        font-weight: 600;
+    }
+
+    &__color--primary {
+        color: variables.$primary-color
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+    }
+
+    &__search-input {
+        width: 90%;
+        padding: .75rem;
+        background-color: #fff;
+        border: 1px solid #999;
+        border-right: none;
+        border-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__search-button {
+        border: 1px solid variables.$primary-color;
+        border-radius: 5px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &__search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__infos--blue {
+        color: hsl(192, 99%, 46%);
+    }
+
+}

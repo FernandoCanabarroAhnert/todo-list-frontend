@@ -1,0 +1,82 @@
+.todo-card {
+    background-color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    cursor: pointer;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+    }
+
+    &__title {
+        margin-right: auto;
+        font-size: 1.25rem;
+    }
+
+    &__status-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+
+        &--completed {
+            border: 3px solid rgb(0, 124, 10);
+        }
+        &--in-progress {
+            border: 3px solid rgb(0, 74, 211);
+        }
+        &--not-started {
+            border: 3px solid rgb(230, 42, 42);
+        }
+    }
+
+    &__icon {
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        height: 150px;
+    }
+
+    &__description {
+        font-size: .925rem;
+        color: #555;
+        width: 60%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        padding: 0 .25rem;
+    }
+
+    &__image {
+        width: 40%;
+        height: 100%;
+        border-radius: 12px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: .675rem;
+    }
+
+    &__date {
+        color: #999
+    }
+
+    &--selected {
+        background-color: #DDD
+    }
+
+}

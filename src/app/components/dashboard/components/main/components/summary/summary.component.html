@@ -1,0 +1,36 @@
+<div class="summary g-card">
+    <h2 class="summary__title">Relatório das Tarefas</h2>
+    <div class="summary__title-decoration"></div>
+    <div class="summary__reports">
+        <div class="summary__item">
+            <mat-spinner 
+                mode="determinate" 
+                [value]="summary.completedTodosPercentage !== 0 ? summary.completedTodosPercentage * 100 : 100"
+                [id]="summary.completedTodosPercentage === 0 ? 'empty-spinner' : 'completed'"></mat-spinner>
+            <p class="summary__percentage">{{ summary.completedTodosPercentage | percent }}</p>
+            <div class="summary__description">
+                <div class="summary__icon summary__icon--completed"></div><span>Concluídas</span>
+            </div>
+        </div>
+        <div class="summary__item">
+            <mat-spinner 
+                mode="determinate" 
+                [value]="summary.inProgressTodosPercentage !== 0 ? summary.inProgressTodosPercentage * 100 : 100"
+                [id]="summary.inProgressTodosPercentage === 0 ? 'empty-spinner' : 'in-progress'"></mat-spinner>
+            <p class="summary__percentage">{{ summary.inProgressTodosPercentage | percent }}</p>
+            <div class="summary__description">
+                <div class="summary__icon summary__icon--in-progress"></div><span>Em andamento</span>
+            </div>
+        </div>
+        <div class="summary__item">
+            <mat-spinner 
+                mode="determinate" 
+                [value]="summary.notStartedTodosPercentage !== 0 ? summary.notStartedTodosPercentage * 100 : 100"
+                [id]="summary.notStartedTodosPercentage === 0 ? 'empty-spinner' : 'not-started'"></mat-spinner>
+            <p class="summary__percentage">{{ summary.notStartedTodosPercentage | percent }}</p>
+            <div class="summary__description">
+                <div class="summary__icon summary__icon--not-started"></div><span>Não iniciadas</span>
+            </div>
+        </div>
+    </div>
+</div>

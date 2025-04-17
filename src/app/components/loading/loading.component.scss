@@ -1,0 +1,29 @@
+@use '../../../styles/variables' as variables;
+
+.spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.spinner {
+    width: 6rem;
+    height: 6rem;
+    border: .625rem solid rgba(0,0,0,.1);
+    border-top-color: variables.$primary-color;
+    border-radius: 50%;
+    animation: spin 1.1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        rotate: (360deg);
+    }
+}

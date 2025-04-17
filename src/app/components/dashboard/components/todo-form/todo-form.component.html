@@ -1,0 +1,102 @@
+<h2 *ngIf="!isCreateTodoForm" mat-dialog-title>Atualizar Tarefa</h2>
+<mat-dialog-content>
+    <div class="block h-full">
+        <div class="todo-form h-full">
+            @if (isCreateTodoForm) {
+                <h2 class="todo-form__title">Criar Tarefa</h2>
+                <div class="todo-form__title-decoration"></div>
+            }
+            <div class="todo-form__card">
+                <form *ngIf="todoForm" class="todo-form__form g-card" [formGroup]="todoForm" (ngSubmit)="createTodo()">
+                    <div class="flex flex-col lg:grid lg:grid-cols-8 md:gap-6">
+                        <div class="todo-form__infos lg:col-span-5">
+                            <div class="todo-form__item">
+                                <label class="todo-form__label" for="title">Título</label>
+                                <input class="todo-form__input" type="text" id="title" name="title" formControlName="title">
+                                <div class="todo-form__error" *ngIf="title.invalid && (title.dirty || title.touched)">
+                                    <p *ngIf="title.hasError('required')">O campo <b>Título</b> é obrigatório</p>
+                                </div>
+                            </div>
+                            
+                            <div class="todo-form__item">
+                                <label class="todo-form__label" for="expiresAt">Data de Expiração</label>
+                                <input class="todo-form__input" type="datetime-local" id="expiresAt" name="expiresAt" formControlName="expiresAt">
+                                <div class="todo-form__error" *ngIf="expiresAt.invalid && (expiresAt.dirty || expiresAt.touched)">
+                                    <p *ngIf="expiresAt.hasError('required')">O campo <b>Data de Expiração</b> é obrigatório</p>
+                                </div>
+                            </div>
+                            <label class="todo-form__label">Prioridade:</label>
+                            <div class="todo-form__priorities flex flex-col gap-4 md:flex-row">
+                                <div class="todo-form__priority">
+                                    <div class="todo-form__priority-icon todo-form__priority-icon--red"></div>
+                                    <label class="todo-form__priority-label" for="extreme">Vital</label>
+                                    <input class="todo-form__priority-input" type="radio" id="extreme" name="priority" [value]="3" formControlName="priority">
+                                </div>
+                                <div class="todo-form__priority">
+                                    <div class="todo-form__priority-icon todo-form__priority-icon--blue"></div>
+                                    <label class="todo-form__priority-label" for="moderate">Moderada</label>
+                                    <input class="todo-form__priority-input" type="radio" id="moderate" name="priority" [value]="2" formControlName="priority">
+                                </div>
+                                <div class="todo-form__priority">
+                                    <div class="todo-form__priority-icon todo-form__priority-icon--green"></div>
+                                    <label class="todo-form__priority-label" for="low">Baixa</label>
+                                    <input class="todo-form__priority-input" type="radio" id="low" name="priority" [value]="1" formControlName="priority">
+                                </div>
+                            </div>
+                            @if (!isCreateTodoForm) {
+                            <label class="todo-form__label">Status:</label>
+                            <div class="todo-form__statuses flex flex-col gap-4 md:flex-row">
+                                <div class="todo-form__status">
+                                    <div class="todo-form__status-icon todo-form__status-icon--green"></div>
+                                    <label class="todo-form__status-label" for="completed">Concluída</label>
+                                    <input class="todo-form__status-input" type="radio" id="completed" name="status" [value]="1" formControlName="status">
+                                </div>
+                                <div class="todo-form__status">
+                                    <div class="todo-form__status-icon todo-form__status-icon--blue"></div>
+                                    <label class="todo-form__status-label" for="in-progress">Em andamento</label>
+                                    <input class="todo-form__status-input" type="radio" id="in-progress" name="status" [value]="2" formControlName="status">
+                                </div>
+                                <div class="todo-form__status">
+                                    <div class="todo-form__status-icon todo-form__status-icon--red"></div>
+                                    <label class="todo-form__status-label" for="not-started">Não iniciada</label>
+                                    <input class="todo-form__status-input" type="radio" id="extreme" name="status" [value]="3" formControlName="status">
+                                </div>
+                            </div>
+                            }
+                            <div class="todo-form__error" *ngIf="priority.invalid && (priority.dirty || priority.touched)">
+                                <p *ngIf="priority.hasError('required')">O campo <b>Prioridade</b> é obrigatório</p>
+                            </div>
+                            <div class="todo-form__item">
+                                <label class="todo-form__label" for="description">Descrição</label>
+                                <textarea rows="5" class="todo-form__input" type="text" id="description" name="description" formControlName="description"></textarea>
+                                <div class="todo-form__error" *ngIf="description.invalid && (description.dirty || description.touched)">
+                                    <p *ngIf="description.hasError('required')">O campo <b>Descrição</b> é obrigatório</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="todo-form__image lg:col-span-3">
+                            @if (!imageFile) {
+                                <label class="todo-form__label" for="image">Selecionar imagem</label>
+                                <div class="todo-form__upload-card g-card">
+                                    <img src="../../../../../assets/img/upload-icon.png">
+                                    <p class="todo-form__placeholder-text">Arraste ou selecione arquivos</p>
+                                    <input (change)="watchImageInputChange($event)" class="todo-form__input todo-form__file-input" type="file">
+                                </div>
+                            }
+                            <div *ngIf="imageFile" class="todo-form__image-preview">
+                                <mat-icon class="todo-form__close-button" title="Deletar imagem" (click)="deleteImage()">close</mat-icon>
+                                <img [src]="imageFile.url">
+                            </div>
+                            <p class="todo-form__error" *ngIf="requiredImageError">O campo <b>Imagem</b> é obrigatório</p>
+                        </div>
+                    </div>
+                    <app-button class="todo-form__button" *ngIf="isCreateTodoForm">Criar Tarefa</app-button>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="!isCreateTodoForm" class="todo-form__dialog-actions">
+    <app-button [mat-dialog-close]="false">Cancelar</app-button>
+    <app-button (click)="onUpdateTodoClick()">Confirmar</app-button>
+</mat-dialog-actions>

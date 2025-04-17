@@ -1,0 +1,17 @@
+@use '../../../styles/variables' as variables;
+
+.login {
+
+    &__icon {
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
