@@ -38,7 +38,7 @@ jobs:
       - name: Construir Imagem do Docker
         uses: docker/build-push-action@v2
         with:
-            context: ../
+            context: .
             dockerfile: Dockerfile
             push: false
             tags: |
