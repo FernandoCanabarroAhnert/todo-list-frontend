@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AsideMenuComponent } from './aside-menu.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, provideRouter, Router, withEnabledBlockingInitialNavigation, withNavigationErrorHandler } from '@angular/router';
+import { provideRouter, withEnabledBlockingInitialNavigation, withNavigationErrorHandler } from '@angular/router';
 import { of } from 'rxjs';
 
 describe('AsideMenuComponent', () => {

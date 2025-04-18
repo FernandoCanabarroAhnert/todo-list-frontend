@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonComponent } from '../button/button.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { IRegisterRequest } from '../../interfaces/register-request.interface';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ import { passwordValidator } from '../../validators/password-validator';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, MatIconModule, ButtonComponent, CommonModule],
+  imports: [RouterLink, ReactiveFormsModule, MatIconModule, ButtonComponent, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

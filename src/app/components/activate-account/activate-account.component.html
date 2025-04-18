@@ -6,6 +6,11 @@
                 <mat-icon class="activate-account__icon">password_2</mat-icon>
                 <input class="auth-form__input" type="text" placeholder="Digite seu código" formControlName="code">
             </div>
+            <div class="auth-form__error" *ngIf="activateAccountForm.invalid && (activateAccountForm.dirty || activateAccountForm.touched)">
+                <p *ngIf="activateAccountForm.hasError('expiredCode')">Código expirado. Um novo código será enviado para o seu e-mail.</p>
+                <p *ngIf="activateAccountForm.hasError('notFound')">Código não encontrado.</p>
+                <p *ngIf="activateAccountForm.hasError('serverError')">Ocorreu um erro inesperado. Tente novamente mais tarde.</p>
+            </div>
             <app-button>Ativar conta</app-button>
         </form>
     </div>

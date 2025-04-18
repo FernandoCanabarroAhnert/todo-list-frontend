@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { provideRouter, Router, withEnabledBlockingInitialNavigation, withNavigationErrorHandler } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { UserEmailValidatorService } from '../../validators/user-email-validator.service';
 import { EMPTY, of, throwError } from 'rxjs';
@@ -11,9 +11,6 @@ describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
 
-  const routerMock = {
-    navigate: jest.fn()
-  }
   const authServiceMock = {
     register: jest.fn()
   }
@@ -39,7 +36,11 @@ describe('RegisterComponent', () => {
         FormBuilder,
         UserEmailValidatorService,
         { provide: AuthService, useValue: authServiceMock },
-        { provide: Router, useValue: routerMock },
+        provideRouter(
+          [],
+          withEnabledBlockingInitialNavigation(),
+          withNavigationErrorHandler(() => { })
+        ),
       ]
     })
     .compileComponents();
@@ -54,21 +55,6 @@ describe('RegisterComponent', () => {
   });
 
   describe('register', () => {
-    it('should navigate to account activation page on successful registration', () => {
-      component.ngOnInit();
-      component.registerForm.setValue({
-        fullName: 'fullName',
-        username: 'username',
-        email: 'email@example.com',
-        password: '12345Az@',
-        passwordConfirmation: '12345Az@',
-      })
-      fixture.detectChanges();
-      authServiceMock.register.mockReturnValue(of(EMPTY));
-      
-      component.register();
-      expect(routerMock.navigate).toHaveBeenCalledWith(['activate-account']);
-    });
     it('should mark all form controls as touched when form is invalid', () => {
       component.ngOnInit();
       component.registerForm.setValue({

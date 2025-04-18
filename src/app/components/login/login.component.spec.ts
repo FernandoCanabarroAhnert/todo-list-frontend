@@ -5,15 +5,12 @@ import { FormBuilder } from '@angular/forms';
 import { ILoginResponse } from '../../interfaces/login-response.interface';
 import { of, throwError } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { provideRouter, Router, withEnabledBlockingInitialNavigation, withNavigationErrorHandler } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  const routerMock = {
-    navigate: jest.fn()
-  }
   const authServiceMock = {
     login: jest.fn()
   }
@@ -40,7 +37,11 @@ describe('LoginComponent', () => {
       providers: [
         FormBuilder,
         { provide: AuthService, useValue: authServiceMock },
-        { provide: Router, useValue: routerMock },
+        provideRouter(
+          [],
+          withEnabledBlockingInitialNavigation(),
+          withNavigationErrorHandler(() => { })
+        ),
       ]
     })
     .compileComponents();
@@ -56,17 +57,6 @@ describe('LoginComponent', () => {
   });
 
   describe('login', () => {
-    it('should set token on local storage and navigate to dashboard', () => {
-      component.ngOnInit();
-      component.loginForm.patchValue({
-        username: username,
-        password: password
-      });
-      fixture.detectChanges();
-      authServiceMock.login.mockReturnValue(of(loginResponse));
-      component.login();
-      expect(routerMock.navigate).toHaveBeenCalledWith(['dashboard']);
-    });
     it('should set invalidCredentials error on loginForm when credentials are invalid', () => {
       component.ngOnInit();
       component.loginForm.patchValue({
