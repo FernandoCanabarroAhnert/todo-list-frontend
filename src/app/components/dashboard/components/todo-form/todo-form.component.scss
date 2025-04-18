@@ -4,11 +4,13 @@
 
     &__title {
         font-size: 1.75rem;
+        margin-left: 1rem;
     }
 
     &__title-decoration {
         width: 10%;
         border: 1px solid red;
+        margin-left: 1rem;
     }
 
     &__card {
@@ -130,6 +132,12 @@
         display: flex;
         justify-content: flex-end;
         gap: .5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    &__title, &__title-decoration  {
+        margin-left: 0;
     }
 }
 

@@ -11,15 +11,14 @@
     &__header {
         display: flex;
         width: 100%;
+        flex-direction: column;
     }
 
     &__image {
-        width: 40%;
         border-radius: 12px;
     }
 
     &__header-infos {
-        width: 60%;
         padding: 1rem;
         padding-top: 2rem;
         font-size: .875rem;
@@ -56,4 +55,16 @@
         justify-content: center;
     }
 
+}
+
+@media (min-width: 768px) {
+    &__header {
+        flex-direction: row;
+    }
+    &__image {
+        width: 40%;
+    }
+    &__header-infos {
+        width: 60%;
+    }
 }
