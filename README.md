@@ -1,27 +1,45 @@
-# TodoListFrontend
+# Projeto Full Stack: Todo List 📝 (front-end)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E44D26?style=for-the-badge&logo=html5&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-## Development server
+## O que é o projeto? 🤔
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O projeto é o back-end de uma simples aplicação de uma todo-list. É um projeto relativamente genérico, mas eu o fiz com a intenção de ser o meu 1o projeto full-stack utilizando Spring Boot e Angular. Por mais que seja simples, não quer dizer que não tenha coisas interessantes.
+O projeto foi feito com Angular e TypeScript, contando com SCSS para a estilização dos componentes e TailwindCSS para a responsividade. A aplicação também tem Testes Unitários com Jest
+Além disso, há uma pipeline CI/CD com Github Actions, que faz o deploy no OCI (Oracle Cloud Infrastructure) com o Traefik, permitindo o uso de domínios próprios (que nesse caso foi o fernandocanabarrodev.tech) e o uso de HTTPS, tanto para o Front-end quanto para o Back-end
 
-## Code scaffolding
+## Imagens da interface
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![login-page](https://github.com/user-attachments/assets/d61df019-268f-4fb6-a77a-b5d7beaab865)
 
-## Build
+![main-page](https://github.com/user-attachments/assets/9a20c232-61a9-42f1-b918-13ebd20f4be4)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![create-todo](https://github.com/user-attachments/assets/17087e1f-c512-4ffa-a85c-750fd63d4b61)
 
-## Running unit tests
+![mobile](https://github.com/user-attachments/assets/af8c17a6-7f7a-46bb-8148-b7a7bccabe6a)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Como executar 🎉
 
-## Running end-to-end tests
+1.Clonar repositório git:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```text
+git clone https://github.com/FernandoCanabarroAhnert/todo-list-frontend.git
+```
 
-## Further help
+2.Instalar dependências.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```text
+npm install
+```
+
+3.Executar
+
+```text
+ng serve
+```
