@@ -136,8 +136,10 @@
 }
 
 @media (min-width: 768px) {
-    &__title, &__title-decoration  {
-        margin-left: 0;
+    .todo-form {
+        &__title, &__title-decoration  {
+            margin-left: 0;
+        }
     }
 }
 

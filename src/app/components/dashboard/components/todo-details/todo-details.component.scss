@@ -58,13 +58,15 @@
 }
 
 @media (min-width: 768px) {
-    &__header {
-        flex-direction: row;
-    }
-    &__image {
-        width: 40%;
-    }
-    &__header-infos {
-        width: 60%;
+    .todo-details {
+        &__header {
+            flex-direction: row;
+        }
+        &__image {
+            width: 40%;
+        }
+        &__header-infos {
+            width: 60%;
+        }
     }
 }
